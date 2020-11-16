@@ -7,5 +7,8 @@
             "email": "73436574+StanislavKls@users.noreply.github.com"
         }
     ],
-    "require": {}
+    "require": {},
+    "bin": [
+        "bin/brain-games"
+      ]
 }
