@@ -1,0 +1,11 @@
+{
+    "name": "hexlet/code",
+    "description": "My first project on Hexlet",
+    "authors": [
+        {
+            "name": "StanislavKls",
+            "email": "73436574+StanislavKls@users.noreply.github.com"
+        }
+    ],
+    "require": {}
+}
