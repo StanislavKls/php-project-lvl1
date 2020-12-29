@@ -1,6 +1,6 @@
 #!/usr/bin/env php
 <?php
-namespace Brain\Games\Cli;
+namespace Brain\Games;
 
 // Путь который будет использован при глобальной установке пакета
 $autoloadPath1 = __DIR__ . '/../../../autoload.php';
@@ -15,4 +15,4 @@ if (file_exists($autoloadPath1)) {
 
 echo 'Welcome to the Brain Games!';
 
-hi();
+Cli\hi();
