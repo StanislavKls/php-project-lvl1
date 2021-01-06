@@ -1,0 +1,59 @@
+#!/usr/bin/env php
+<?php
+namespace Brain\Even;
+use function cli\line;
+use function cli\prompt;
+
+$autoloadPath1 = __DIR__ . '/../../../autoload.php';
+$autoloadPath2 = __DIR__ . '/../vendor/autoload.php';
+if (file_exists($autoloadPath1)) {
+    require_once $autoloadPath1;
+} else {
+    require_once $autoloadPath2;
+}
+
+function even($digit)
+{
+    $result = $digit % 2 === 0 ? true : false;
+    return $result;
+}
+
+function hi()
+{
+    line('Welcome to the Brain Game!');
+}
+
+function game()
+{
+    $name = prompt('May I have your name?');
+    line("Hello, %s!", $name);
+    line('Answer "yes" if the number is even, otherwise answer "no".');
+
+    $count = 0;
+    while ($count < 3)
+    {
+        $digit = rand(1, 9999);
+        line("Question: %d", $digit);
+        $answer = prompt('Your answer');
+
+        if (even($digit) && $answer === "yes") {
+            line("Correct!");
+        } elseif (!even($digit) && $answer === "no") {
+            line("Correct!");
+        } elseif (even($digit) && $answer !== "yes") {
+            line("'%s' is wrong answer ;(. Correct answer was 'yes'.", $answer);
+            break;
+        } elseif (!even($digit) && $answer !== "no") {
+            line("'%s' is wrong answer ;(. Correct answer was 'no'.", $answer);
+            break;
+        }
+        $count += 1;
+    }
+
+    if ($count === 3) {
+        line("Congratulations, %s!", $name);
+    } 
+}
+
+hi();
+game();
