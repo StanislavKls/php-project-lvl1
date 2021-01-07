@@ -7,4 +7,7 @@
 
 
 
-<a href="https://asciinema.org/a/U23smmXnLiTOi2fUqAUbnE3R6">asciinema</a>
+<a href="https://asciinema.org/a/U23smmXnLiTOi2fUqAUbnE3R6">asciinema for Brain-even</a>
+
+<a href="https://asciinema.org/a/HCIkH9X5PhUY2uqYFomS9V2iv">asciinema for Brain-calc</a>
+
