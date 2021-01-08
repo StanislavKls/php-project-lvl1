@@ -4,3 +4,10 @@
 <a href="https://codeclimate.com/github/codeclimate/codeclimate/maintainability"><img src="https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability" /></a>
 
 [![Github Actions Status](https://github.com/StanislavKls/php-project-lvl1/workflows/PHP%20CI/badge.svg)](https://github.com/StanislavKls/php-project-lvl1/actions)
+
+
+
+<a href="https://asciinema.org/a/U23smmXnLiTOi2fUqAUbnE3R6">asciinema for Brain-even</a>
+
+<a href="https://asciinema.org/a/HCIkH9X5PhUY2uqYFomS9V2iv">asciinema for Brain-calc</a>
+
