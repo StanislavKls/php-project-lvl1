@@ -1,0 +1,72 @@
+#!/usr/bin/env php
+<?php
+namespace Brain\Calc;
+use function cli\line;
+use function cli\prompt;
+
+$autoloadPath1 = __DIR__ . '/../../../autoload.php';
+$autoloadPath2 = __DIR__ . '/../vendor/autoload.php';
+if (file_exists($autoloadPath1)) {
+    require_once $autoloadPath1;
+} else {
+    require_once $autoloadPath2;
+}
+function hi()
+{
+    line('Welcome to the Brain Game!');
+}
+
+function game()
+{
+    $name = prompt('May I have your name?');
+    line("Hello, %s!", $name);
+    line('What is the result of the expression?');
+
+    $count = 0;
+    while ($count < 3)
+    {
+        $operations = ['+', '-', '*'];
+        $operation = $operations[array_rand($operations)];
+        $a = rand(0, 15);
+        $b = rand(0, 15);
+        if ($operation === '+') {
+            $result = $a + $b;
+            line("Question: {$a} + {$b}");
+            $answer = (int) prompt('Your answer');
+            if ($result === $answer) {
+                line("Correct!");
+            } else {
+                line("'%s' is wrong answer ;(. Correct answer was '{$result}'.", $answer);
+                break;
+            }
+        } elseif ($operation === '-') {
+            $result = $a - $b;
+            line("Question: {$a} - {$b}");
+            $answer = (int) prompt('Your answer');
+            if ($result === $answer) {
+                line("Correct!");
+            } else {
+                line("'%s' is wrong answer ;(. Correct answer was '{$result}'.", $answer);
+                break;
+            }
+        } elseif ($operation === '*') {
+            $result = $a * $b;
+            line("Question: {$a} * {$b}");
+            $answer = (int) prompt('Your answer');
+            if ($result === $answer) {
+                line("Correct!");
+            } else {
+                line("'%s' is wrong answer ;(. Correct answer was '{$result}'.", $answer);
+                break;
+            }
+        }
+        
+        $count += 1;
+    }
+    if ($count === 3) {
+        line("Congratulations, %s!", $name);
+    }
+}
+
+hi();
+game();
