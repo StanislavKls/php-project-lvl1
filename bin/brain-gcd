@@ -1,0 +1,64 @@
+#!/usr/bin/env php
+<?php
+
+namespace Brain\Games\Gcd;
+
+use function cli\line;
+use function cli\prompt;
+
+$autoloadPath1 = __DIR__ . '/../../../autoload.php';
+$autoloadPath2 = __DIR__ . '/../vendor/autoload.php';
+if (file_exists($autoloadPath1)) {
+    require_once $autoloadPath1;
+} else {
+    require_once $autoloadPath2;
+}
+
+function hi()
+{
+    line('Welcome to the Brain Game!');
+}
+
+function gcd($number1, $number2)
+{
+    $result = 0;
+    for ($i = $number1; $i > 0; $i--) {
+        if ($number1 % $i === 0 && $number2 % $i === 0) {
+            $result = $i;
+            break;
+        }
+    }
+    return $result;
+}
+
+function game()
+{
+    $name = prompt('May I have your name?');
+    line("Hello, %s!", $name);
+    line('Find the greatest common divisor of given numbers.');
+
+    $count = 0;
+    while ($count < 3) {
+        $a = rand(1, 100);
+        $b = rand(1, 100);
+
+        $result = gcd($a, $b);
+        line("Question: {$a} {$b}");
+        $answer = (int) prompt('Your answer');
+        if ($result === $answer) {
+            line("Correct!");
+        } else {
+            line("'%s' is wrong answer ;(. Correct answer was '{$result}'.", $answer);
+            line("Let's try again, {$name}!");
+            break;
+        }
+        $count += 1;
+    }
+
+    if ($count === 3) {
+        line("Congratulations, %s!", $name);
+    }
+}
+
+hi();
+game();

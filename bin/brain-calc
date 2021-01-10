@@ -1,6 +1,8 @@
 #!/usr/bin/env php
 <?php
-namespace Brain\Calc;
+
+namespace Brain\Games\Calc;
+
 use function cli\line;
 use function cli\prompt;
 
@@ -23,8 +25,7 @@ function game()
     line('What is the result of the expression?');
 
     $count = 0;
-    while ($count < 3)
-    {
+    while ($count < 3) {
         $operations = ['+', '-', '*'];
         $operation = $operations[array_rand($operations)];
         $a = rand(0, 15);
@@ -37,6 +38,7 @@ function game()
                 line("Correct!");
             } else {
                 line("'%s' is wrong answer ;(. Correct answer was '{$result}'.", $answer);
+                line("Let's try again, {$name}!");
                 break;
             }
         } elseif ($operation === '-') {
@@ -47,6 +49,7 @@ function game()
                 line("Correct!");
             } else {
                 line("'%s' is wrong answer ;(. Correct answer was '{$result}'.", $answer);
+                line("Let's try again, {$name}!");
                 break;
             }
         } elseif ($operation === '*') {
@@ -57,10 +60,10 @@ function game()
                 line("Correct!");
             } else {
                 line("'%s' is wrong answer ;(. Correct answer was '{$result}'.", $answer);
+                line("Let's try again, {$name}!");
                 break;
             }
         }
-        
         $count += 1;
     }
     if ($count === 3) {

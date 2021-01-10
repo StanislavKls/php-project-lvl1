@@ -1,7 +1,7 @@
 #!/usr/bin/env php
 <?php
 
-namespace Brain\Games\Even;
+namespace Brain\Games\Prime;
 
 use function cli\line;
 use function cli\prompt;
@@ -14,45 +14,48 @@ if (file_exists($autoloadPath1)) {
     require_once $autoloadPath2;
 }
 
-function even($digit)
-{
-    $result = $digit % 2 === 0 ? true : false;
-    return $result;
-}
-
 function hi()
 {
     line('Welcome to the Brain Game!');
+}
+
+function thisPrime($numb)
+{
+    for ($i = $numb - 1; $i > 1; $i--) {
+        if ($numb % $i === 0) {
+            return false;
+        }
+    }
+    return true;
 }
 
 function game()
 {
     $name = prompt('May I have your name?');
     line("Hello, %s!", $name);
-    line('Answer "yes" if the number is even, otherwise answer "no".');
+    line('Answer "yes" if given number is prime. Otherwise answer "no".');
 
     $count = 0;
     while ($count < 3) {
-        $digit = rand(1, 9999);
-        line("Question: %d", $digit);
+        $question = rand(2, 100);
+        line("Question: {$question}");
         $answer = prompt('Your answer');
 
-        if (even($digit) && $answer === "yes") {
+        if (thisPrime($question) && $answer === "yes") {
             line("Correct!");
-        } elseif (!even($digit) && $answer === "no") {
+        } elseif (!thisPrime($question) && $answer === "no") {
             line("Correct!");
-        } elseif (even($digit) && $answer !== "yes") {
-            line("'%s' is wrong answer ;(. Correct answer was 'yes'.", $answer);
+        } elseif (thisPrime($question) && $answer !== "yes") {
+            line("{$answer} is wrong answer ;(. Correct answer was 'yes'.");
             line("Let's try again, {$name}!");
             break;
-        } elseif (!even($digit) && $answer !== "no") {
-            line("'%s' is wrong answer ;(. Correct answer was 'no'.", $answer);
+        } elseif (!thisPrime($question) && $answer !== "no") {
+            line("{$answer} is wrong answer ;(. Correct answer was 'no'.");
             line("Let's try again, {$name}!");
             break;
         }
         $count += 1;
     }
-
     if ($count === 3) {
         line("Congratulations, %s!", $name);
     }
