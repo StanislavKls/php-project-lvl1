@@ -23,9 +23,7 @@ function playGame()
     line("Hello, %s!", $name);
     $count = 0;
     while ($count < 3) {
-        
         $result = Games\gcd\game();
-
         if ($result[0] !== $result[1]) {
             line("'$result[0]' is wrong answer ;(. Correct answer was '{$result[1]}'.");
             break;
