@@ -37,4 +37,3 @@ function game()
     $answer = (int) prompt('Your answer');
     return [$answer, $result];
 }
-
