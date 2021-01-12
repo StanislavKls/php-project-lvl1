@@ -15,7 +15,7 @@ if (file_exists($autoloadPath1)) {
 use function cli\line;
 use function cli\prompt;
 
-function gcd($number1, $number2): int
+function gcd(int $number1, int $number2): int
 {
     $result = 0;
     for ($i = $number1; $i > 0; $i--) {
@@ -27,7 +27,7 @@ function gcd($number1, $number2): int
     return $result;
 }
 
-function game()
+function game(): array
 {
     $a = rand(1, 100);
     $b = rand(1, 100);
