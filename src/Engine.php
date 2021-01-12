@@ -34,5 +34,6 @@ function playGame()
         line("Congratulations, %s!", $name);
     }
 }
-
-playgame();
+//phpcs:disable
+playGame();
+//phpcs:enable
