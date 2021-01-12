@@ -25,7 +25,8 @@
 
     "autoload": {
         "files":[
-            "src/Cli.php"
+            "src/Cli.php",
+            "src/Games/gcd.php"
         ]
     },
     "scripts": {

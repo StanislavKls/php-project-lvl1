@@ -15,22 +15,26 @@ if (file_exists($autoloadPath1)) {
 use function cli\line;
 use function cli\prompt;
 
-function hi()
+
+function playGame()
 {
     line('Welcome to the Brain Game!');
-}
-
-function game()
-{
     $name = prompt('May I have your name?');
     line("Hello, %s!", $name);
-
     $count = 0;
     while ($count < 3) {
+        
+        $result = Games\gcd\game();
+
+        if ($result[0] !== $result[1]) {
+            line("'$result[0]' is wrong answer ;(. Correct answer was '{$result[1]}'.");
+            break;
+        }
         $count += 1;
     }
-
     if ($count === 3) {
         line("Congratulations, %s!", $name);
     }
 }
+
+playgame();
