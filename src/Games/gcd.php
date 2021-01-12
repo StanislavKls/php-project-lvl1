@@ -15,7 +15,7 @@ if (file_exists($autoloadPath1)) {
 use function cli\line;
 use function cli\prompt;
 
-function gcd($number1, $number2) : Int
+function gcd($number1, $number2): int
 {
     $result = 0;
     for ($i = $number1; $i > 0; $i--) {
